@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit {{post.title}}{% endblock title%}
+
+{%block content%} 
+<h2 class="text-center">Edit {{post.title}}</h2>
+
+<form method="post">
+    {{ form.csrf_token}}
+    <div class = "form-group">
+        {{ form.title.lable}}
+        {{form.title(class = 'form-control mb-3', value= post.title)}}
+
+        {{ form.body.lable}}
+        {{form.body(class = 'form-control', value= post.body)}}
+
+        {{ form.submit(class='btn btn-secondary w-100 mt-3') }}
+
+    </div>
+</form>
+{%endblock content%}
